@@ -35,6 +35,7 @@ A full list of parameters can be found in the  `aind-ephys-pipeline` repository,
 
 The output of this capsule is the following:
 
-- `results/visualization_{recording_name}.json`, a JSON file including the visualization links
+- `results/visualization_{recording_name}.json`, a JSON file including the visualization links (Figpack). If the `FIGPACK_API_KEY` environment variable is not set, no links are produced and the file only contains a `note`
+- `results/visualization_{recording_name}/`, a folder with static PNG figures: `drift_map.png`, `motion.png` (if motion was estimated), `traces_full_seg{segment_index}.png` and `traces_proc_seg{segment_index}.png`. If `FIGPACK_API_KEY` is not set, it also includes a static counterpart of the sorting summary: `unit_locations.png`, `template_similarity.png`, and `unit_templates.png`, `autocorrelograms.png` and `amplitudes.png` for the (up to) 16 units with the largest amplitude
 - `results/data_process_postprocessing_{recording_name}.json` file, a JSON file containing a `DataProcess` object from the [aind-data-schema](https://aind-data-schema.readthedocs.io/en/stable/) package.
 
